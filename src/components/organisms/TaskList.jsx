@@ -43,10 +43,12 @@ const TaskList = ({
             break
           case 'overdue':
             fetchedTasks = await taskService.getOverdueTasks()
-            break
-          case 'completed':
+break
+          case 'completed': {
             const allTasks = await taskService.getAll()
             fetchedTasks = allTasks.filter(task => task.completed)
+            break
+          }
             break
           default:
             fetchedTasks = await taskService.getAll()
