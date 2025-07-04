@@ -57,5 +57,22 @@ export const getDateRangeForView = (view) => {
       }
     default:
       return null
+}
+}
+
+export const formatDateTimeForAPI = (dateValue) => {
+  if (!dateValue) return null
+  
+  // If it's already a valid ISO string, return it
+  if (typeof dateValue === 'string' && dateValue.includes('T')) {
+    return new Date(dateValue).toISOString()
   }
+  
+  // If it's a date-only string (YYYY-MM-DD), add end of day time
+  if (typeof dateValue === 'string' && dateValue.match(/^\d{4}-\d{2}-\d{2}$/)) {
+    return new Date(dateValue + 'T23:59:59.999Z').toISOString()
+  }
+  
+  // If it's a Date object or timestamp, convert to ISO
+  return new Date(dateValue).toISOString()
 }

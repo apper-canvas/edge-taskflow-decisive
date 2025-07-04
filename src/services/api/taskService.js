@@ -217,11 +217,11 @@ export const taskService = {
             operator: "AND",
             subGroups: [
               {
-                conditions: [
+conditions: [
                   {
                     fieldName: "dueDate",
                     operator: "LessThan",
-                    values: [new Date().toISOString().split('T')[0]]
+                    values: [new Date().toISOString()]
                   }
                 ]
               },

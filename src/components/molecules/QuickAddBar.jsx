@@ -35,15 +35,14 @@ const QuickAddBar = ({ onAddTask, categories = [] }) => {
     }
 
     setIsLoading(true)
-    try {
+try {
       await onAddTask({
         title: title.trim(),
         description: description.trim(),
         categoryId: categoryId || 'personal',
         priority,
-        dueDate: dueDate ? new Date(dueDate).toISOString() : null
+        dueDate: dueDate ? new Date(dueDate + 'T23:59:59.999Z').toISOString() : null
       })
-      
       // Reset form
       setTitle('')
       setDescription('')
