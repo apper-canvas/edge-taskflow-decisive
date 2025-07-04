@@ -102,8 +102,8 @@ case 'completed': {
     }
   }
 
-  const getCategoryColor = (categoryId) => {
-    const category = categories.find(cat => cat.name.toLowerCase() === categoryId)
+const getCategoryColor = (categoryId) => {
+    const category = categories.find(cat => cat.name?.toLowerCase() === categoryId)
     return category?.color || '#3b82f6'
   }
 
